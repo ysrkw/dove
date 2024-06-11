@@ -1,6 +1,7 @@
 {
   "imports": {
-    "@std/assert": "jsr:@std/assert@^0.226.0"
+    "@std/assert": "jsr:@std/assert@^0.226.0",
+    "@std/ulid": "jsr:@std/ulid@^0.224.1"
   },
   "unstable": ["cron", "kv"]
 }
