@@ -6,7 +6,7 @@ export interface IValueObject<V> {
 }
 
 export abstract class ValueObject<T, V> implements IValueObject<V> {
-  __brand!: T;
+  declare __brand: T;
 
   constructor(public readonly value: V) {}
 
