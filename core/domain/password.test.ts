@@ -10,7 +10,5 @@ Deno.test(function of() {
 Deno.test(function hash() {
   const password = Password.of("PassW0rd!");
 
-  const hash = password.hash();
-
-  assertStrictEquals(hash.length, 128);
+  assertStrictEquals(password.hash().length, 128);
 });
