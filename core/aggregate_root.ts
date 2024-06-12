@@ -1,6 +1,6 @@
+import { Identify } from "./domain/identify.ts";
 import { IDomainEvent } from "./domain_event.ts";
 import { IEntity } from "./entity.ts";
-import { Identify } from "./identify.ts";
 
 export interface IAggregateRoot<P> extends IEntity<P> {
   domainEvents: IDomainEvent<unknown>[];

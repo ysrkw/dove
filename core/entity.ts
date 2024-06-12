@@ -1,4 +1,4 @@
-import { Identify } from "./identify.ts";
+import { Identify } from "./domain/identify.ts";
 
 export interface IEntity<P> {
   id: Identify;

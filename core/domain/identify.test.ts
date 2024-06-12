@@ -1,7 +1,7 @@
 import { assertInstanceOf } from "@std/assert";
 import { Identify } from "./identify.ts";
 
-Deno.test(function createIdentify() {
+Deno.test(function of() {
   const id = Identify.of();
 
   assertInstanceOf(id, Identify);

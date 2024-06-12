@@ -1,4 +1,4 @@
-import { Identify } from "./identify.ts";
+import { Identify } from "./domain/identify.ts";
 
 export interface IDomainEvent<P> {
   id: Identify;
