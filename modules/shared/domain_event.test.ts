@@ -1,20 +1,20 @@
 import { assertInstanceOf, assertStrictEquals } from "@std/assert";
 import { DomainEvent } from "./domain_event.ts";
 
-interface UserCreatedProps {
-  email: string;
+interface UserActionedProps {
+  name: string;
 }
 
-class UserCreated extends DomainEvent<"UserCreated", UserCreatedProps> {}
+class UserActioned extends DomainEvent<"UserActioned", UserActionedProps> {}
 
 Deno.test(function createDomainEvent() {
-  const instance = new UserCreated({ email: "test@example.com" });
+  const instance = new UserActioned({ name: "Hello World" });
 
-  assertInstanceOf(instance, UserCreated);
+  assertInstanceOf(instance, UserActioned);
 });
 
-Deno.test(function holdArgumentProps() {
-  const instance = new UserCreated({ email: "test@example.com" });
+Deno.test(function holdArgumentPayload() {
+  const instance = new UserActioned({ name: "Hello World" });
 
-  assertStrictEquals(instance.props.email, "test@example.com");
+  assertStrictEquals(instance.payload.name, "Hello World");
 });
