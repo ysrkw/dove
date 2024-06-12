@@ -8,13 +8,13 @@ interface UserActionedProps {
 class UserActioned extends DomainEvent<"UserActioned", UserActionedProps> {}
 
 Deno.test(function createDomainEvent() {
-  const instance = new UserActioned({ name: "Hello World" });
+  const event = new UserActioned({ name: "Hello World" });
 
-  assertInstanceOf(instance, UserActioned);
+  assertInstanceOf(event, UserActioned);
 });
 
 Deno.test(function holdArgumentPayload() {
-  const instance = new UserActioned({ name: "Hello World" });
+  const event = new UserActioned({ name: "Hello World" });
 
-  assertStrictEquals(instance.payload.name, "Hello World");
+  assertStrictEquals(event.payload.name, "Hello World");
 });

@@ -8,15 +8,15 @@ interface UserProps {
 class User extends Entity<"User", UserProps> {}
 
 Deno.test(function createEntity() {
-  const instance = new User({ name: "john doe" });
+  const john = new User({ name: "john doe" });
 
-  assertInstanceOf(instance, User);
+  assertInstanceOf(john, User);
 });
 
 Deno.test(function holdArgumentProps() {
-  const instance = new User({ name: "john doe" });
+  const john = new User({ name: "john doe" });
 
-  assertStrictEquals(instance.props.name, "john doe");
+  assertStrictEquals(john.props.name, "john doe");
 });
 
 Deno.test(function sameIdentifiesIsEqual() {
