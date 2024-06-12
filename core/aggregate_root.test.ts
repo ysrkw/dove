@@ -8,11 +8,11 @@ interface UserProps {
 
 class User extends AggregateRoot<"User", UserProps> {}
 
-interface UserActionedProps {
+interface UserActionedPayload {
   name: string;
 }
 
-class UserActioned extends DomainEvent<"UserActioned", UserActionedProps> {}
+class UserActioned extends DomainEvent<"UserActioned", UserActionedPayload> {}
 
 Deno.test(function createAggregateRoot() {
   const john = new User({ name: "john doe" });
