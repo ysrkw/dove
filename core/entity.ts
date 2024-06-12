@@ -1,12 +1,13 @@
 import { Identify } from "./domain/identify.ts";
 
-export interface IEntity<P> {
+export interface IEntity<P extends unknown> {
   id: Identify;
   props: P;
   equals(entity: IEntity<P>): boolean;
 }
 
-export abstract class Entity<T, P> implements IEntity<P> {
+export abstract class Entity<T extends string, P extends unknown>
+  implements IEntity<P> {
   declare private __brand: T;
 
   constructor(

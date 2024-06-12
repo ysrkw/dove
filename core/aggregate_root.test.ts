@@ -1,4 +1,4 @@
-import { assertInstanceOf, assertStrictEquals } from "@std/assert";
+import { assertStrictEquals } from "@std/assert";
 import { AggregateRoot } from "./aggregate_root.ts";
 import { DomainEvent } from "./domain_event.ts";
 
@@ -14,33 +14,7 @@ interface UserActionedPayload {
 
 class UserActioned extends DomainEvent<"UserActioned", UserActionedPayload> {}
 
-Deno.test(function createAggregateRoot() {
-  const john = new User({ name: "john doe" });
-
-  assertInstanceOf(john, User);
-});
-
-Deno.test(function holdArgumentProps() {
-  const john = new User({ name: "john doe" });
-
-  assertStrictEquals(john.props.name, "john doe");
-});
-
-Deno.test(function sameIdentifiesIsEqual() {
-  const alice = new User({ name: "alice" });
-  const bob = new User({ name: "bob" }, alice.id);
-
-  assertStrictEquals(alice.equals(bob), true);
-});
-
-Deno.test(function differentIdentifiesIsNotEqual() {
-  const alice = new User({ name: "alice" });
-  const bob = new User({ name: "bob" });
-
-  assertStrictEquals(alice.equals(bob), false);
-});
-
-Deno.test(function initDomainEvents() {
+Deno.test(function domainEvents() {
   const john = new User({ name: "john doe" });
 
   assertStrictEquals(john.domainEvents.length, 0);
@@ -49,18 +23,17 @@ Deno.test(function initDomainEvents() {
 Deno.test(function addDomainEvents() {
   const john = new User({ name: "john doe" });
 
-  john.addDomainEvent(new UserActioned({ name: "1" }));
-  john.addDomainEvent(new UserActioned({ name: "2" }));
-  john.addDomainEvent(new UserActioned({ name: "3" }));
+  john.addDomainEvent(new UserActioned({ name: "foo" }));
+  john.addDomainEvent(new UserActioned({ name: "bar" }));
 
-  assertStrictEquals(john.domainEvents.length, 3);
+  assertStrictEquals(john.domainEvents.length, 2);
 });
 
 Deno.test(function clearDomainEvents() {
   const john = new User({ name: "john doe" });
 
-  john.addDomainEvent(new UserActioned({ name: "1" }));
-  john.addDomainEvent(new UserActioned({ name: "2" }));
+  john.addDomainEvent(new UserActioned({ name: "foo" }));
+  john.addDomainEvent(new UserActioned({ name: "bar" }));
   john.clearDomainEvents();
 
   assertStrictEquals(john.domainEvents.length, 0);

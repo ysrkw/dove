@@ -1,11 +1,12 @@
 import { equal } from "@std/assert";
 
-export interface IValueObject<V> {
+export interface IValueObject<V extends unknown> {
   value: V;
   equals(vo: IValueObject<V>): boolean;
 }
 
-export abstract class ValueObject<T, V> implements IValueObject<V> {
+export abstract class ValueObject<T extends string, V extends unknown>
+  implements IValueObject<V> {
   declare private __brand: T;
 
   constructor(public readonly value: V) {}
