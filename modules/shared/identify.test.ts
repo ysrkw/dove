@@ -6,3 +6,9 @@ Deno.test(function createIdentify() {
 
   assertInstanceOf(id, Identify);
 });
+
+Deno.test(function createAt() {
+  const id = Identify.of();
+
+  assertInstanceOf(id.createAt(), Date);
+});
