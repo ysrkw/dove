@@ -16,6 +16,6 @@ export class BasicAuthenticationService {
 
     const authUser = await this.authUserRepository.findByUsername(username);
 
-    return authUser ? authUser.validPassword(password) : false;
+    return authUser ? authUser.samePassword(password) : false;
   }
 }
