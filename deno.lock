@@ -6,6 +6,7 @@
       "jsr:@std/assert@0.222.1": "jsr:@std/assert@0.222.1",
       "jsr:@std/assert@^0.222.1": "jsr:@std/assert@0.222.1",
       "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
+      "jsr:@std/async@^0.224.2": "jsr:@std/async@0.224.2",
       "jsr:@std/crypto@0.222.1": "jsr:@std/crypto@0.222.1",
       "jsr:@std/encoding@0.222.1": "jsr:@std/encoding@0.222.1",
       "jsr:@std/encoding@^0.222.1": "jsr:@std/encoding@0.222.1",
@@ -34,6 +35,9 @@
           "jsr:@std/internal@^1.0.0"
         ]
       },
+      "@std/async@0.224.2": {
+        "integrity": "4d277d6e165df43d5e061ba0ef3edfddb8e8d558f5b920e3e6b1d2614b44d074"
+      },
       "@std/crypto@0.222.1": {
         "integrity": "d5b9e6c704fadbcc384cd42c0b603ad4aea710ece0ff26426602681b64fd237c",
         "dependencies": [
@@ -60,6 +64,7 @@
     "dependencies": [
       "jsr:@denorg/scrypt@^4.4.4",
       "jsr:@std/assert@^0.226.0",
+      "jsr:@std/async@^0.224.2",
       "jsr:@std/ulid@^0.224.1"
     ]
   }

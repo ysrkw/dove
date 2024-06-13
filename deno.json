@@ -2,6 +2,7 @@
   "imports": {
     "@denorg/scrypt": "jsr:@denorg/scrypt@^4.4.4",
     "@std/assert": "jsr:@std/assert@^0.226.0",
+    "@std/async": "jsr:@std/async@^0.224.2",
     "@std/ulid": "jsr:@std/ulid@^0.224.1"
   },
   "unstable": ["cron", "kv"]
