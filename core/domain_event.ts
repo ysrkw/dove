@@ -8,9 +8,7 @@ export interface IDomainEvent<P extends unknown> {
 export abstract class DomainEvent<T extends string, P extends unknown>
   implements IDomainEvent<P> {
   declare private __brand: T;
+  public readonly id = Identify.of();
 
-  constructor(
-    public readonly payload: P,
-    public readonly id = Identify.of(),
-  ) {}
+  constructor(public readonly payload: P) {}
 }
