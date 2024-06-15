@@ -6,14 +6,14 @@ import { Username } from "../../../core/domain/username.ts";
 import { ExpiredAt } from "./expired_at.ts";
 import { Session } from "./session.ts";
 
-export interface AuthUserProps {
+export interface UserProps {
   username: Username;
   passwordHash: PasswordHash;
   sessions: Session[];
 }
 
-export class AuthUser extends AggregateRoot<"AuthUser", AuthUserProps> {
-  static create(props: AuthUserProps, id = Identify.of()) {
+export class User extends AggregateRoot<"User", UserProps> {
+  static create(props: UserProps, id = Identify.of()) {
     return new this(props, id);
   }
 
@@ -21,8 +21,10 @@ export class AuthUser extends AggregateRoot<"AuthUser", AuthUserProps> {
     return this.props.passwordHash.verify(password.value);
   }
 
-  createSession(): void {
-    const session = Session.create({ expiredAt: ExpiredAt.of() });
+  createSession() {
+    const session = Session.create({
+      expiredAt: ExpiredAt.of(),
+    });
 
     this.props.sessions.push(session);
   }
