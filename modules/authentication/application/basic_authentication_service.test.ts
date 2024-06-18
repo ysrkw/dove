@@ -1,53 +1,38 @@
-import { assertRejects, assertStrictEquals } from "@std/assert";
-import { Username } from "../../../core/domain/username.ts";
-import { Password } from "../../../core/domain/password.ts";
-import { PasswordHash } from "../../../core/domain/password_hash.ts";
-import { User } from "../domain/user.ts";
-import { UserRepository } from "../infrastructure/user_repository.ts";
+import { assertStrictEquals } from "@std/assert";
 import { BasicAuthenticationService } from "./basic_authentication_service.ts";
+import { createUserRepository } from "../test/create_user_repository.ts";
 
-Deno.test(async function basicAuthenticationService(t) {
-  const userRepository = new UserRepository();
-  const username = Username.of("john_doe");
-  const password = Password.of("PassW0rd!");
-  const passwordHash = PasswordHash.of(password.hash());
+const userRepository = await createUserRepository();
 
-  const user = User.create({ username, passwordHash, sessions: [] });
+Deno.test(async function success() {
+  const service = new BasicAuthenticationService(userRepository);
 
-  await userRepository.save(user);
-
-  await t.step(async function success() {
-    const service = new BasicAuthenticationService(userRepository);
-
-    const result = await service.execution({
-      username: "john_doe",
-      password: "PassW0rd!",
-    });
-
-    assertStrictEquals(result, void 0);
+  const result = await service.execution({
+    username: "john_doe",
+    password: "PassW0rd!",
   });
 
-  await t.step(function notUsernameExists() {
-    const service = new BasicAuthenticationService(userRepository);
+  assertStrictEquals(result, true);
+});
 
-    const result = () =>
-      service.execution({
-        username: "foo",
-        password: "PassW0rd!",
-      });
+Deno.test(async function notUsernameExists() {
+  const service = new BasicAuthenticationService(userRepository);
 
-    assertRejects(result);
+  const result = await service.execution({
+    username: "foo",
+    password: "PassW0rd!",
   });
 
-  await t.step(function notSamePassword() {
-    const service = new BasicAuthenticationService(userRepository);
+  assertStrictEquals(result, false);
+});
 
-    const result = () =>
-      service.execution({
-        username: "john_doe",
-        password: "password",
-      });
+Deno.test(async function notSamePassword() {
+  const service = new BasicAuthenticationService(userRepository);
 
-    assertRejects(result);
+  const result = await service.execution({
+    username: "john_doe",
+    password: "password",
   });
+
+  assertStrictEquals(result, false);
 });

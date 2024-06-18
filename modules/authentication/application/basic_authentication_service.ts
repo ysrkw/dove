@@ -16,12 +16,14 @@ export class BasicAuthenticationService {
 
     const authUser = await this.userRepository.findByUsername(username);
 
-    if (!authUser) throw new Error();
+    if (!authUser) return false;
 
-    if (!authUser.samePassword(password)) throw new Error();
+    if (!authUser.samePassword(password)) return false;
 
     authUser.createSession();
 
     await this.userRepository.save(authUser);
+
+    return true;
   }
 }
