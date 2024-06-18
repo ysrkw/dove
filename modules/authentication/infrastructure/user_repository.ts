@@ -9,8 +9,6 @@ export class UserRepository implements IUserRepository {
   private username = new Map<string, User>();
   private sessions = new Map<string, User>();
 
-  constructor() {}
-
   async save(user: User): Promise<void> {
     await delay(0);
 

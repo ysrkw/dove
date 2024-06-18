@@ -6,7 +6,7 @@ import { Username } from "../../../core/domain/username.ts";
 import { ExpiredAt } from "./expired_at.ts";
 import { Session } from "./session.ts";
 
-export interface UserProps {
+interface UserProps {
   username: Username;
   passwordHash: PasswordHash;
   sessions: Session[];

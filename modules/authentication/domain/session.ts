@@ -2,7 +2,7 @@ import { Identify } from "../../../core/domain/identify.ts";
 import { Entity } from "../../../core/entity.ts";
 import { ExpiredAt } from "./expired_at.ts";
 
-export interface SessionProps {
+interface SessionProps {
   expiredAt: ExpiredAt;
 }
 
