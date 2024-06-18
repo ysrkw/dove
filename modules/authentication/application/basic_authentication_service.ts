@@ -2,7 +2,7 @@ import { Password } from "../../../core/domain/password.ts";
 import { Username } from "../../../core/domain/username.ts";
 import { IUserRepository } from "../domain/user_repository.ts";
 
-interface BasicAuthenticationCommand {
+export interface BasicAuthenticationCommand {
   username: string;
   password: string;
 }
@@ -14,15 +14,11 @@ export class BasicAuthenticationService {
     const username = Username.of(command.username);
     const password = Password.of(command.password);
 
-    const authUser = await this.userRepository.findByUsername(username);
+    const user = await this.userRepository.findByUsername(username);
 
-    if (!authUser) return false;
+    if (!user) return false;
 
-    if (!authUser.samePassword(password)) return false;
-
-    authUser.createSession();
-
-    await this.userRepository.save(authUser);
+    if (!user.samePassword(password)) return false;
 
     return true;
   }
