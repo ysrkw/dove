@@ -5,10 +5,14 @@ export interface KvUser {
   password_hash: string;
 }
 
-export function getKvUser(id: string): Deno.KvKey {
-  return ["users", id];
+export function findAll(): Deno.KvKey {
+  return ["user"];
 }
 
-export function getKvUserByUsername(username: string): Deno.KvKey {
-  return ["users_by_username", username];
+export function findByPk(id: string): Deno.KvKey {
+  return ["user", id];
+}
+
+export function findByUsername(username: string): Deno.KvKey {
+  return ["user_by_username", username];
 }

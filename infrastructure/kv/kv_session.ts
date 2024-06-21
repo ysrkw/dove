@@ -4,10 +4,14 @@ export interface KvSession {
   expired_at: Date;
 }
 
-export function getKvSession(id: string): Deno.KvKey {
+export function findAll(id: string): Deno.KvKey {
   return ["session", id];
 }
 
-export function getKvSessionByUserId(user_id: string): Deno.KvKey {
+export function findByPk(id: string): Deno.KvKey {
+  return ["session", id];
+}
+
+export function findByUserId(user_id: string): Deno.KvKey {
   return ["session_by_user_id", user_id];
 }
