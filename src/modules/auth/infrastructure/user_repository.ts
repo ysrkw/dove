@@ -1,8 +1,8 @@
 import { delay } from "@std/async";
 import { Identify } from "~/domain/identify.ts";
 import { Username } from "~/domain/username.ts";
-import { User } from "~/modules/authentication/domain/user.ts";
-import { IUserRepository } from "~/modules/authentication/domain/user_repository.ts";
+import { User } from "~/modules/auth/domain/user.ts";
+import { IUserRepository } from "~/modules/auth/domain/user_repository.ts";
 
 export class UserRepository implements IUserRepository {
   private id = new Map<string, User>();

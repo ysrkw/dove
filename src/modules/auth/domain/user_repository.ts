@@ -1,6 +1,6 @@
 import { Identify } from "~/domain/identify.ts";
 import { Username } from "~/domain/username.ts";
-import { User } from "~/modules/authentication/domain/user.ts";
+import { User } from "~/modules/auth/domain/user.ts";
 
 export interface IUserRepository {
   save(user: User): Promise<void>;

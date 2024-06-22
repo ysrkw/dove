@@ -1,6 +1,6 @@
 import { Password } from "~/domain/password.ts";
 import { Username } from "~/domain/username.ts";
-import { IUserRepository } from "~/modules/authentication/domain/user_repository.ts";
+import { IUserRepository } from "~/modules/auth/domain/user_repository.ts";
 
 export interface BasicAuthenticationCommand {
   username: string;

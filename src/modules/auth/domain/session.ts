@@ -1,6 +1,6 @@
 import { Entity } from "~/core/entity.ts";
 import { Identify } from "~/domain/identify.ts";
-import { ExpiredAt } from "~/modules/authentication/domain/expired_at.ts";
+import { ExpiredAt } from "~/modules/auth/domain/expired_at.ts";
 
 interface SessionProps {
   expiredAt: ExpiredAt;

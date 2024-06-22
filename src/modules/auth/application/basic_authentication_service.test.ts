@@ -2,8 +2,8 @@ import { assertStrictEquals } from "@std/assert";
 import {
   BasicAuthenticationCommand,
   BasicAuthenticationService,
-} from "~/modules/authentication/application/basic_authentication_service.ts";
-import { createUserRepository } from "~/modules/authentication/application/_user_repository.ts";
+} from "~/modules/auth/application/basic_authentication_service.ts";
+import { createUserRepository } from "~/modules/auth/application/_user_repository.ts";
 
 const userRepository = await createUserRepository();
 const basicAuthentication = new BasicAuthenticationService(userRepository);

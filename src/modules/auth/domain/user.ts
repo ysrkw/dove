@@ -3,8 +3,8 @@ import { Identify } from "~/domain/identify.ts";
 import { Password } from "~/domain/password.ts";
 import { PasswordHash } from "~/domain/password_hash.ts";
 import { Username } from "~/domain/username.ts";
-import { ExpiredAt } from "~/modules/authentication/domain/expired_at.ts";
-import { Session } from "~/modules/authentication/domain/session.ts";
+import { ExpiredAt } from "~/modules/auth/domain/expired_at.ts";
+import { Session } from "~/modules/auth/domain/session.ts";
 
 interface UserProps {
   username: Username;
