@@ -12,7 +12,8 @@
       "jsr:@std/encoding@^0.222.1": "jsr:@std/encoding@0.222.1",
       "jsr:@std/fmt@^0.222.1": "jsr:@std/fmt@0.222.1",
       "jsr:@std/internal@^1.0.0": "jsr:@std/internal@1.0.0",
-      "jsr:@std/ulid@^0.224.1": "jsr:@std/ulid@0.224.1"
+      "jsr:@std/ulid@^0.224.1": "jsr:@std/ulid@0.224.1",
+      "jsr:@valibot/valibot@^0.33.3": "jsr:@valibot/valibot@0.33.3"
     },
     "jsr": {
       "@denorg/scrypt@4.4.4": {
@@ -56,6 +57,9 @@
       },
       "@std/ulid@0.224.1": {
         "integrity": "4de06fdb030ff3990b1b0344e330373c11ce6051ac449fc435667a485a6723fa"
+      },
+      "@valibot/valibot@0.33.3": {
+        "integrity": "2121ea87f9392a37ca54ccafe36f1269dfa7d980a35e55e5d0749c5ffd50997f"
       }
     }
   },
@@ -65,7 +69,8 @@
       "jsr:@denorg/scrypt@^4.4.4",
       "jsr:@std/assert@^0.226.0",
       "jsr:@std/async@^0.224.2",
-      "jsr:@std/ulid@^0.224.1"
+      "jsr:@std/ulid@^0.224.1",
+      "jsr:@valibot/valibot@^0.33.3"
     ]
   }
 }

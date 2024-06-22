@@ -22,7 +22,7 @@ Deno.test(async function isValidUser() {
 Deno.test(async function isInvalidUser() {
   const input: Required<BasicAuthenticationCommand> = {
     username: "john_doe",
-    password: "password",
+    password: "PassW0rd!_NG",
   };
 
   const result = await basicAuthentication.execution(input);
@@ -32,7 +32,7 @@ Deno.test(async function isInvalidUser() {
 
 Deno.test(async function isNotExistsUser() {
   const input: Required<BasicAuthenticationCommand> = {
-    username: "foo",
+    username: "john_smith",
     password: "PassW0rd!",
   };
 
