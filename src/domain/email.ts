@@ -1,7 +1,10 @@
 import * as v from "@valibot/valibot";
 import { ValueObject } from "~/core/value_object.ts";
 
-const EmailSchema = v.pipe(v.string(), v.email());
+const EmailSchema = v.pipe(
+  v.string(),
+  v.email(),
+);
 
 export class Email extends ValueObject<"Email", string> {
   static of(value: string) {
