@@ -3,8 +3,14 @@ import { ValueObject } from "~/core/value_object.ts";
 
 const ExpiredAtSchema = v.date();
 
-export class ExpiredAt extends ValueObject<"ExpiredAt", Date> {
-  static of(value = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)) {
+type ExpiredAtInput = v.InferInput<typeof ExpiredAtSchema>;
+
+function defaultExpiredAt() {
+  return new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+}
+
+export class ExpiredAt extends ValueObject<"ExpiredAt", ExpiredAtInput> {
+  static of(value: ExpiredAtInput = defaultExpiredAt()) {
     return new this(v.parse(ExpiredAtSchema, value));
   }
 

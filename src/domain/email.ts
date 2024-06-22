@@ -6,8 +6,10 @@ const EmailSchema = v.pipe(
   v.email(),
 );
 
-export class Email extends ValueObject<"Email", string> {
-  static of(value: string) {
+type EmailInput = v.InferInput<typeof EmailSchema>;
+
+export class Email extends ValueObject<"Email", EmailInput> {
+  static of(value: EmailInput) {
     return new this(v.parse(EmailSchema, value));
   }
 

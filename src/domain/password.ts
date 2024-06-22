@@ -11,8 +11,10 @@ const PasswordSchema = v.pipe(
   v.regex(/[0-9]/),
 );
 
-export class Password extends ValueObject<"Password", string> {
-  static of(value: string) {
+type PasswordInput = v.InferInput<typeof PasswordSchema>;
+
+export class Password extends ValueObject<"Password", PasswordInput> {
+  static of(value: PasswordInput) {
     return new this(v.parse(PasswordSchema, value));
   }
 

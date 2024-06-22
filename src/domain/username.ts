@@ -8,8 +8,10 @@ const UsernameSchema = v.pipe(
   v.regex(/[a-zA-Z0-9_-]/),
 );
 
-export class Username extends ValueObject<"Username", string> {
-  static of(value: string) {
+type UsernameInput = v.InferInput<typeof UsernameSchema>;
+
+export class Username extends ValueObject<"Username", UsernameInput> {
+  static of(value: UsernameInput) {
     return new this(v.parse(UsernameSchema, value));
   }
 

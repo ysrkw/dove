@@ -7,8 +7,11 @@ const PasswordHashSchema = v.pipe(
   v.length(128),
 );
 
-export class PasswordHash extends ValueObject<"PasswordHash", string> {
-  static of(value: string) {
+type PasswordHashInput = v.InferInput<typeof PasswordHashSchema>;
+
+export class PasswordHash
+  extends ValueObject<"PasswordHash", PasswordHashInput> {
+  static of(value: PasswordHashInput) {
     return new this(v.parse(PasswordHashSchema, value));
   }
 

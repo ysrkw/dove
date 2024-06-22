@@ -7,8 +7,10 @@ const TextSchema = v.pipe(
   v.maxLength(256),
 );
 
-export class Text extends ValueObject<"Text", string> {
-  static of(value: string) {
+type TextInput = v.InferInput<typeof TextSchema>;
+
+export class Text extends ValueObject<"Text", TextInput> {
+  static of(value: TextInput) {
     return new this(v.parse(TextSchema, value));
   }
 }

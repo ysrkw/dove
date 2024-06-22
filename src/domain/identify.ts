@@ -7,8 +7,10 @@ const IdentifySchema = v.pipe(
   v.ulid(),
 );
 
-export class Identify extends ValueObject<"Identify", ReturnType<typeof ulid>> {
-  static of(value = ulid()) {
+type IdentifyInput = v.InferInput<typeof IdentifySchema>;
+
+export class Identify extends ValueObject<"Identify", IdentifyInput> {
+  static of(value: IdentifyInput = ulid()) {
     return new this(v.parse(IdentifySchema, value));
   }
 
