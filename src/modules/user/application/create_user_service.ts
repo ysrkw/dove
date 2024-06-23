@@ -1,9 +1,11 @@
-import { Biography } from "~/domain/biography.ts";
-import { Email } from "~/domain/email.ts";
-import { Password } from "~/domain/password.ts";
-import { PasswordHash } from "~/domain/password_hash.ts";
-import { Name } from "~/domain/name.ts";
-import { Username } from "~/domain/username.ts";
+import {
+  Biography,
+  Email,
+  Name,
+  Password,
+  PasswordHash,
+  Username,
+} from "~/domain/mod.ts";
 import { User } from "~/modules/user/domain/user.ts";
 import { IUserRepository } from "~/modules/user/domain/user_repository.ts";
 

@@ -1,6 +1,4 @@
-import { Email } from "~/domain/email.ts";
-import { Identify } from "~/domain/identify.ts";
-import { Username } from "~/domain/username.ts";
+import { Email, Identify, Username } from "~/domain/mod.ts";
 import { User } from "~/modules/user/domain/user.ts";
 
 export interface IUserRepository {

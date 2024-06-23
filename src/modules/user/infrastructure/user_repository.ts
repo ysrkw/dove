@@ -1,9 +1,11 @@
-import { Identify } from "~/domain/identify.ts";
-import { Email } from "~/domain/email.ts";
-import { Name } from "~/domain/name.ts";
-import { PasswordHash } from "~/domain/password_hash.ts";
-import { Username } from "~/domain/username.ts";
-import { Biography } from "~/domain/biography.ts";
+import {
+  Biography,
+  Email,
+  Identify,
+  Name,
+  PasswordHash,
+  Username,
+} from "~/domain/mod.ts";
 import {
   findByEmail,
   findById,
