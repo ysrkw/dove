@@ -8,11 +8,11 @@ import { PasswordHash } from "~/domain/password_hash.ts";
 import { Username } from "~/domain/username.ts";
 
 interface UserProps {
-  biography: Biography;
   email: Email;
-  name: Name;
   passwordHash: PasswordHash;
+  name: Name;
   username: Username;
+  biography: Biography;
 }
 
 export class User extends AggregateRoot<"User", UserProps> {
@@ -20,16 +20,8 @@ export class User extends AggregateRoot<"User", UserProps> {
     return new this(props, id);
   }
 
-  changeBiography(biography: Biography) {
-    this.props.biography = biography;
-  }
-
   changeEmail(email: Email) {
     this.props.email = email;
-  }
-
-  changeName(name: Name) {
-    this.props.name = name;
   }
 
   changePassword(password: Password) {
@@ -42,7 +34,15 @@ export class User extends AggregateRoot<"User", UserProps> {
     return this.props.passwordHash.verify(password.value);
   }
 
+  changeName(name: Name) {
+    this.props.name = name;
+  }
+
   changeUsername(username: Username) {
     this.props.username = username;
+  }
+
+  changeBiography(biography: Biography) {
+    this.props.biography = biography;
   }
 }
