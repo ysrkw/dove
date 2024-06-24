@@ -1,11 +1,5 @@
-import { assertInstanceOf, assertStrictEquals } from "@std/assert";
-import { Email } from "~/domain/email.ts";
-
-Deno.test(function of() {
-  const email = Email.of("test@example.com");
-
-  assertInstanceOf(email, Email);
-});
+import { assertStrictEquals } from "@std/assert";
+import { Email } from "./email.ts";
 
 Deno.test(function local() {
   const email = Email.of("test@example.com");

@@ -1,6 +1,5 @@
 import { delay } from "@std/async";
-import { Post } from "~/modules/post/domain/post.ts";
-import { IPostRepository } from "~/modules/post/domain/post_repository.ts";
+import { IPostRepository, Post } from "~/domain/mod.ts";
 
 export class PostRepository implements IPostRepository {
   private id = new Map<string, Post>();

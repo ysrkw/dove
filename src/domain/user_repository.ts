@@ -1,5 +1,4 @@
-import { Email, Identify, Username } from "~/domain/mod.ts";
-import { User } from "~/modules/user/domain/user.ts";
+import { Email, Identify, User, Username } from "~/domain/mod.ts";
 
 export interface IUserRepository {
   save(user: User): Promise<void>;

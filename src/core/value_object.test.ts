@@ -1,30 +1,28 @@
-import { assertInstanceOf, assertStrictEquals } from "@std/assert";
-import { ValueObject } from "~/core/value_object.ts";
+import { assertStrictEquals } from "@std/assert";
+import { ValueObject } from "./value_object.ts";
 
-class Text extends ValueObject<"Text", string> {}
-
-Deno.test(function createValueObject() {
-  const text = new Text("Hello World");
-
-  assertInstanceOf(text, Text);
-});
+class TestText extends ValueObject<"TestText", string> {
+  static of(value: string) {
+    return new this(value);
+  }
+}
 
 Deno.test(function holdArgumentValue() {
-  const text = new Text("Hello World");
+  const text = TestText.of("Hello World");
 
   assertStrictEquals(text.value, "Hello World");
 });
 
 Deno.test(function sameValuesIsEqual() {
-  const foo = new Text("same text");
-  const bar = new Text("same text");
+  const foo = TestText.of("same text");
+  const bar = TestText.of("same text");
 
   assertStrictEquals(foo.equals(bar), true);
 });
 
 Deno.test(function differentValuesIsNotEqual() {
-  const foo = new Text("foo");
-  const bar = new Text("bar");
+  const foo = TestText.of("foo");
+  const bar = TestText.of("bar");
 
   assertStrictEquals(foo.equals(bar), false);
 });

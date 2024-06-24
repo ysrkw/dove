@@ -1,11 +1,5 @@
-import { assertInstanceOf, assertStrictEquals } from "@std/assert";
-import { Name } from "~/domain/name.ts";
-
-Deno.test(function of() {
-  const name = Name.of("John");
-
-  assertInstanceOf(name, Name);
-});
+import { assertStrictEquals } from "@std/assert";
+import { Name } from "./name.ts";
 
 Deno.test(function initial() {
   const name = Name.of("john");

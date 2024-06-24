@@ -1,38 +1,40 @@
 import { assertStrictEquals } from "@std/assert";
-import { AggregateRoot } from "~/core/aggregate_root.ts";
-import { DomainEvent } from "~/core/domain_event.ts";
-import { Identify } from "~/domain/identify.ts";
+import { Identify } from "~/domain/mod.ts";
+import { AggregateRoot } from "./aggregate_root.ts";
+import { DomainEvent } from "./domain_event.ts";
 
-class UserCreated extends DomainEvent<"UserCreated", Identify> {}
-class UserWaved extends DomainEvent<"UserWaved", Identify> {}
+class TestUserWaved extends DomainEvent<"TestUserWaved", string> {}
+class TestUser extends AggregateRoot<"TestUser", string> {
+  static create(props: string, id = Identify.of()) {
+    return new this(props, id);
+  }
 
-class User extends AggregateRoot<"User", string> {
-  static create(props: string, id?: Identify) {
-    const user = new this(props, id);
-
-    if (!id) user.addDomainEvent(new UserCreated(user.id));
-
-    return user;
+  wave() {
+    this.addDomainEvent(new TestUserWaved("wave"));
   }
 }
 
 Deno.test(function initDomainEvents() {
-  const john = User.create("john doe");
+  const john = TestUser.create("john doe");
 
-  assertStrictEquals(john.domainEvents.length, 1);
+  assertStrictEquals(john.domainEvents.length, 0);
 });
 
 Deno.test(function addDomainEvents() {
-  const john = User.create("john doe");
+  const john = TestUser.create("john doe");
 
-  john.addDomainEvent(new UserWaved(john.id));
+  john.wave();
+  john.wave();
+  john.wave();
 
-  assertStrictEquals(john.domainEvents.length, 2);
+  assertStrictEquals(john.domainEvents.length, 3);
 });
 
 Deno.test(function clearDomainEvents() {
-  const john = User.create("john doe");
+  const john = TestUser.create("john doe");
 
+  john.wave();
+  john.wave();
   john.clearDomainEvents();
 
   assertStrictEquals(john.domainEvents.length, 0);

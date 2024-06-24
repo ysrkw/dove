@@ -1,6 +1,5 @@
-import { AggregateRoot } from "~/core/aggregate_root.ts";
-import { Identify } from "~/domain/identify.ts";
-import { Text } from "~/modules/post/domain/text.ts";
+import { AggregateRoot } from "~/core/mod.ts";
+import { Identify, Text } from "~/domain/mod.ts";
 
 interface PostProps {
   text: Text;

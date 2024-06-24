@@ -1,9 +1,6 @@
 import { assertStrictEquals } from "@std/assert";
-import {
-  CreateUserCommand,
-  CreateUserService,
-} from "~/modules/user/application/create_user_service.ts";
-import { UserRepository } from "~/modules/user/infrastructure/user_repository.ts";
+import { UserRepository } from "~/infrastructure/mod.ts";
+import { CreateUserCommand, CreateUserService } from "./create_user_service.ts";
 
 Deno.test(async function isCreatedUser() {
   const kv = await Deno.openKv(":memory:");

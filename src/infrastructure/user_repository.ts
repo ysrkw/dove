@@ -2,18 +2,13 @@ import {
   Biography,
   Email,
   Identify,
+  IUserRepository,
   Name,
   PasswordHash,
+  User,
   Username,
 } from "~/domain/mod.ts";
-import {
-  findByEmail,
-  findById,
-  findByUsername,
-  KvUser,
-} from "~/infrastructure/kv/kv_user.ts";
-import { IUserRepository } from "~/modules/user/domain/user_repository.ts";
-import { User } from "~/modules/user/domain/user.ts";
+import { findByEmail, findById, findByUsername, KvUser } from "./kv/kv_user.ts";
 
 export class UserRepository implements IUserRepository {
   constructor(private kv: Deno.Kv) {}

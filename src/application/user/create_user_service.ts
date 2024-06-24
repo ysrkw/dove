@@ -1,13 +1,13 @@
 import {
   Biography,
   Email,
+  IUserRepository,
   Name,
   Password,
   PasswordHash,
+  User,
   Username,
 } from "~/domain/mod.ts";
-import { User } from "~/modules/user/domain/user.ts";
-import { IUserRepository } from "~/modules/user/domain/user_repository.ts";
 
 export interface CreateUserCommand {
   email: string;

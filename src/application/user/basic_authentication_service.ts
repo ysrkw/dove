@@ -1,6 +1,4 @@
-import { Password } from "~/domain/password.ts";
-import { Username } from "~/domain/username.ts";
-import { IUserRepository } from "~/modules/auth/domain/user_repository.ts";
+import { IUserRepository, Password, Username } from "~/domain/mod.ts";
 
 export interface BasicAuthenticationCommand {
   username: string;
@@ -18,7 +16,7 @@ export class BasicAuthenticationService {
 
     if (!user) return false;
 
-    if (!user.samePassword(password)) return false;
+    if (!user.validPassword(password)) return false;
 
     return true;
   }

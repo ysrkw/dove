@@ -1,4 +1,4 @@
-import { AggregateRoot } from "~/core/aggregate_root.ts";
+import { AggregateRoot } from "~/core/mod.ts";
 import {
   Biography,
   Email,

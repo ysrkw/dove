@@ -1,4 +1,4 @@
-import { Identify } from "~/domain/identify.ts";
+import { Identify } from "~/domain/mod.ts";
 
 export interface IEntity<P extends unknown> {
   id: Identify;
@@ -10,7 +10,7 @@ export abstract class Entity<T extends string, P extends unknown>
   implements IEntity<P> {
   declare private __brand: T;
 
-  constructor(
+  protected constructor(
     public readonly props: P,
     public readonly id = Identify.of(),
   ) {}

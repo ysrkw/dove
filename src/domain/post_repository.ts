@@ -1,4 +1,4 @@
-import { Post } from "~/modules/post/domain/post.ts";
+import { Post } from "~/domain/mod.ts";
 
 export interface IPostRepository {
   save(post: Post): Promise<void>;

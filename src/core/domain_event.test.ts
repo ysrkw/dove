@@ -1,5 +1,5 @@
 import { assertInstanceOf, assertStrictEquals } from "@std/assert";
-import { DomainEvent } from "~/core/domain_event.ts";
+import { DomainEvent } from "./domain_event.ts";
 
 class UserCreated extends DomainEvent<"UserCreated", string> {}
 

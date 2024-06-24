@@ -1,4 +1,4 @@
-import { Identify } from "~/domain/identify.ts";
+import { Identify } from "~/domain/mod.ts";
 
 export interface IDomainEvent<P extends unknown> {
   id: Identify;
@@ -10,5 +10,5 @@ export abstract class DomainEvent<T extends string, P extends unknown>
   declare private __brand: T;
   public readonly id = Identify.of();
 
-  constructor(public readonly payload: P) {}
+  public constructor(public readonly payload: P) {}
 }

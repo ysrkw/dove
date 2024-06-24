@@ -1,14 +1,18 @@
 import { assertStrictEquals } from "@std/assert";
+import { UserRepository } from "~/infrastructure/mod.ts";
+import { initUserRepository } from "./_init_user_repository.ts";
 import {
   BasicAuthenticationCommand,
   BasicAuthenticationService,
-} from "~/modules/auth/application/basic_authentication_service.ts";
-import { createUserRepository } from "~/modules/auth/application/_user_repository.ts";
-
-const userRepository = await createUserRepository();
-const basicAuthentication = new BasicAuthenticationService(userRepository);
+} from "./basic_authentication_service.ts";
 
 Deno.test(async function isValidUser() {
+  const kv = await Deno.openKv(":memory:");
+
+  await initUserRepository(kv);
+  const userRepository = new UserRepository(kv);
+  const basicAuthentication = new BasicAuthenticationService(userRepository);
+
   const input: Required<BasicAuthenticationCommand> = {
     username: "john_doe",
     password: "PassW0rd!",
@@ -17,9 +21,17 @@ Deno.test(async function isValidUser() {
   const result = await basicAuthentication.execution(input);
 
   assertStrictEquals(result, true);
+
+  kv.close();
 });
 
 Deno.test(async function isInvalidUser() {
+  const kv = await Deno.openKv(":memory:");
+
+  await initUserRepository(kv);
+  const userRepository = new UserRepository(kv);
+  const basicAuthentication = new BasicAuthenticationService(userRepository);
+
   const input: Required<BasicAuthenticationCommand> = {
     username: "john_doe",
     password: "PassW0rd!_NG",
@@ -28,9 +40,17 @@ Deno.test(async function isInvalidUser() {
   const result = await basicAuthentication.execution(input);
 
   assertStrictEquals(result, false);
+
+  kv.close();
 });
 
 Deno.test(async function isNotExistsUser() {
+  const kv = await Deno.openKv(":memory:");
+
+  await initUserRepository(kv);
+  const userRepository = new UserRepository(kv);
+  const basicAuthentication = new BasicAuthenticationService(userRepository);
+
   const input: Required<BasicAuthenticationCommand> = {
     username: "john_smith",
     password: "PassW0rd!",
@@ -39,4 +59,6 @@ Deno.test(async function isNotExistsUser() {
   const result = await basicAuthentication.execution(input);
 
   assertStrictEquals(result, false);
+
+  kv.close();
 });

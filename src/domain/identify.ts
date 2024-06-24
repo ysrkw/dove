@@ -1,6 +1,6 @@
 import * as v from "@valibot/valibot";
 import { decodeTime, ulid } from "@std/ulid";
-import { ValueObject } from "~/core/value_object.ts";
+import { ValueObject } from "~/core/mod.ts";
 
 const IdentifySchema = v.pipe(
   v.string(),
@@ -9,8 +9,12 @@ const IdentifySchema = v.pipe(
 
 type IdentifyInput = v.InferInput<typeof IdentifySchema>;
 
+function defaultIdentify() {
+  return ulid();
+}
+
 export class Identify extends ValueObject<"Identify", IdentifyInput> {
-  static of(value: IdentifyInput = ulid()) {
+  static of(value: IdentifyInput = defaultIdentify()) {
     return new this(v.parse(IdentifySchema, value));
   }
 
