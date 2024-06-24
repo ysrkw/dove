@@ -8,10 +8,10 @@ export function findAll(): Deno.KvKey {
   return ["post"];
 }
 
-export function findByPk(id: string): Deno.KvKey {
+export function findById(id: string): Deno.KvKey {
   return ["post", id];
 }
 
-export function findByUserId(user_id: string): Deno.KvKey {
-  return ["post_by_user_id", user_id];
+export function findByUserId(user_id: string, id?: string): Deno.KvKey {
+  return id ? ["post_by_user_id", user_id, id] : ["post_by_user_id", user_id];
 }

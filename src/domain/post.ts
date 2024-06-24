@@ -2,6 +2,7 @@ import { AggregateRoot } from "~/core/mod.ts";
 import { Identify, Text } from "~/domain/mod.ts";
 
 interface PostProps {
+  userId: Identify;
   text: Text;
 }
 
