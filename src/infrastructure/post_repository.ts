@@ -11,14 +11,21 @@ export class PostRepository implements IPostRepository {
       text: post.props.text.value,
     };
 
-    await this.kv
+    const result = await this.kv
       .atomic()
       .check({ key: findById(value.id), versionstamp: null })
       .check({ key: findByUserId(value.user_id, value.id), versionstamp: null })
       .set(findById(value.id), value)
       .set(findByUserId(value.user_id, value.id), value)
-      .enqueue(post.domainEvents)
       .commit();
+
+    if (result.ok) {
+      await this.kv.enqueue(post.domainEvents, {
+        delay: 1000,
+        keysIfUndelivered: [["event_by_post", value.id, Date.now()]],
+        backoffSchedule: [3000, 5000],
+      });
+    }
   }
 
   async findById(id: Identify) {

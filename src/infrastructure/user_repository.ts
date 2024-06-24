@@ -23,7 +23,7 @@ export class UserRepository implements IUserRepository {
       biography: user.props.biography.value,
     };
 
-    await this.kv
+    const result = await this.kv
       .atomic()
       .check({ key: findById(value.id), versionstamp: null })
       .check({ key: findByEmail(value.email), versionstamp: null })
@@ -31,8 +31,15 @@ export class UserRepository implements IUserRepository {
       .set(findById(value.id), value)
       .set(findByEmail(value.email), value)
       .set(findByUsername(value.username), value)
-      .enqueue(user.domainEvents)
       .commit();
+
+    if (result.ok) {
+      await this.kv.enqueue(user.domainEvents, {
+        delay: 1000,
+        keysIfUndelivered: [["event_by_user", value.id, Date.now()]],
+        backoffSchedule: [3000, 5000],
+      });
+    }
   }
 
   async findById(id: Identify) {
