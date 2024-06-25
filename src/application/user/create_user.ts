@@ -15,7 +15,7 @@ export interface CreateUserCommand {
   username: string;
 }
 
-export class CreateUserService {
+export class CreateUser {
   constructor(private userRepository: IUserRepository) {}
 
   async execution(command: CreateUserCommand): Promise<void> {

@@ -5,7 +5,7 @@ export interface BasicAuthenticationCommand {
   password: string;
 }
 
-export class BasicAuthenticationService {
+export class BasicAuthentication {
   constructor(private userRepository: IUserRepository) {}
 
   async execution(command: BasicAuthenticationCommand) {

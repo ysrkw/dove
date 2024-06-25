@@ -1,13 +1,13 @@
 import { assertStrictEquals } from "@std/assert";
 import { Identify } from "~/domain/mod.ts";
 import { PostRepository } from "~/infrastructure/mod.ts";
-import { CreatePostCommand, CreatePostService } from "./create_post_service.ts";
+import { CreatePost, CreatePostCommand } from "./create_post.ts";
 
 Deno.test(async function isCreatedPost() {
   const kv = await Deno.openKv(":memory:");
 
   const postRepository = new PostRepository(kv);
-  const createPost = new CreatePostService(postRepository);
+  const createPost = new CreatePost(postRepository);
   const userId = Identify.of();
 
   const input: Required<CreatePostCommand> = {

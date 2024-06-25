@@ -5,7 +5,7 @@ export interface CreatePostCommand {
   text: string;
 }
 
-export class CreatePostService {
+export class CreatePost {
   constructor(private postRepository: IPostRepository) {}
 
   async execution(command: CreatePostCommand) {

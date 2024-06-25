@@ -1,12 +1,12 @@
 import { assertStrictEquals } from "@std/assert";
 import { UserRepository } from "~/infrastructure/mod.ts";
-import { CreateUserCommand, CreateUserService } from "./create_user_service.ts";
+import { CreateUser, CreateUserCommand } from "./create_user.ts";
 
 Deno.test(async function isCreatedUser() {
   const kv = await Deno.openKv(":memory:");
 
   const userRepository = new UserRepository(kv);
-  const createUser = new CreateUserService(userRepository);
+  const createUser = new CreateUser(userRepository);
 
   const input: Required<CreateUserCommand> = {
     email: "test@example.com",
