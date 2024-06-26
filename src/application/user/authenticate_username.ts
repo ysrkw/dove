@@ -1,14 +1,14 @@
 import { IUserRepository, Password, Username } from "~/domain";
 
-export interface BasicAuthenticationCommand {
+export interface AuthenticateUsernameCommand {
   username: string;
   password: string;
 }
 
-export class BasicAuthentication {
+export class AuthenticateUsername {
   constructor(private userRepository: IUserRepository) {}
 
-  async execution(command: BasicAuthenticationCommand) {
+  async execution(command: AuthenticateUsernameCommand) {
     const username = Username.of(command.username);
     const password = Password.of(command.password);
 
