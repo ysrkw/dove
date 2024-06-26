@@ -13,4 +13,10 @@ export class Text extends ValueObject<"Text", TextInput> {
   static of(value: TextInput) {
     return new this(v.parse(TextSchema, value));
   }
+
+  hashtags() {
+    const results = this.value.match(/#(\w{2,24})/g);
+
+    return results ? Array.from(results) : [];
+  }
 }

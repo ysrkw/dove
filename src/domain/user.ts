@@ -32,7 +32,7 @@ export class User extends AggregateRoot<"User", UserProps> {
     this.props.passwordHash = passwordHash;
   }
 
-  validPassword(password: Password) {
+  samePassword(password: Password) {
     return this.props.passwordHash.verify(password.value);
   }
 

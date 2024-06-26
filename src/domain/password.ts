@@ -18,7 +18,7 @@ export class Password extends ValueObject<"Password", PasswordInput> {
     return new this(v.parse(PasswordSchema, value));
   }
 
-  hash(): string {
+  hash() {
     return hash(this.value);
   }
 }

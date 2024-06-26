@@ -16,8 +16,6 @@ export class AuthenticateUsername {
 
     if (!user) return false;
 
-    if (!user.validPassword(password)) return false;
-
-    return true;
+    return user.samePassword(password);
   }
 }

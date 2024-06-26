@@ -18,7 +18,7 @@ export class Identify extends ValueObject<"Identify", IdentifyInput> {
     return new this(v.parse(IdentifySchema, value));
   }
 
-  createAt(): Date {
+  createAt() {
     return new Date(decodeTime(this.value));
   }
 }

@@ -15,7 +15,7 @@ export class AuthenticateEmail {
     const user = await this.userRepository.findByEmail(email);
 
     if (!user) return false;
-    if (!user.validPassword(password)) return false;
-    return true;
+
+    return user.samePassword(password);
   }
 }

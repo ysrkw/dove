@@ -15,7 +15,7 @@ export class PasswordHash
     return new this(v.parse(PasswordHashSchema, value));
   }
 
-  verify(password: string): boolean {
+  verify(password: string) {
     return verify(password, this.value);
   }
 }
