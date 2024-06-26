@@ -17,3 +17,7 @@ export function findByUserId(user_id: string, id?: string): Deno.KvKey {
     ? ["session_by_user_id", user_id, id]
     : ["session_by_user_id", user_id];
 }
+
+export function fallbackEvent(id: string): Deno.KvKey[] {
+  return [["session_by_event", id, Date.now()]];
+}

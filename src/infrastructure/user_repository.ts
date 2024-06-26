@@ -8,7 +8,13 @@ import {
   User,
   Username,
 } from "~/domain/mod.ts";
-import { findByEmail, findById, findByUsername, KvUser } from "./kv/kv_user.ts";
+import {
+  fallbackEvent,
+  findByEmail,
+  findById,
+  findByUsername,
+  KvUser,
+} from "./kv/kv_user.ts";
 
 export class UserRepository implements IUserRepository {
   constructor(private kv: Deno.Kv) {}
@@ -36,7 +42,7 @@ export class UserRepository implements IUserRepository {
     if (result.ok) {
       await this.kv.enqueue(user.domainEvents, {
         delay: 1000,
-        keysIfUndelivered: [["event_by_user", value.id, Date.now()]],
+        keysIfUndelivered: fallbackEvent(value.id),
         backoffSchedule: [3000, 5000],
       });
     }

@@ -1,5 +1,5 @@
 import { Identify, IPostRepository, Post, Text } from "~/domain/mod.ts";
-import { findById, findByUserId, KvPost } from "./kv/kv_post.ts";
+import { fallbackEvent, findById, findByUserId, KvPost } from "./kv/kv_post.ts";
 
 export class PostRepository implements IPostRepository {
   constructor(private kv: Deno.Kv) {}
@@ -22,7 +22,7 @@ export class PostRepository implements IPostRepository {
     if (result.ok) {
       await this.kv.enqueue(post.domainEvents, {
         delay: 1000,
-        keysIfUndelivered: [["event_by_post", value.id, Date.now()]],
+        keysIfUndelivered: fallbackEvent(value.id),
         backoffSchedule: [3000, 5000],
       });
     }

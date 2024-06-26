@@ -14,7 +14,7 @@ export class ExpiredAt extends ValueObject<"ExpiredAt", ExpiredAtInput> {
     return new this(v.parse(ExpiredAtSchema, value));
   }
 
-  expiresIn(): number {
-    return Math.floor(this.value.getTime() - Date.now() / 1000);
+  expireIn(): number {
+    return Math.max(0, Math.round((this.value.getTime() - Date.now()) / 1000));
   }
 }
