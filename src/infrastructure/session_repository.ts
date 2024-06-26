@@ -11,7 +11,7 @@ import {
   KvSession,
 } from "./kv/kv_session.ts";
 
-export class PostRepository implements ISessionRepository {
+export class SessionRepository implements ISessionRepository {
   constructor(private kv: Deno.Kv) {}
 
   async save(session: Session) {
