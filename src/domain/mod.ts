@@ -7,6 +7,7 @@ export * from "./password_hash.ts";
 export * from "./password.ts";
 export * from "./post_repository.ts";
 export * from "./post.ts";
+export * from "./session_repository.ts";
 export * from "./session.ts";
 export * from "./text.ts";
 export * from "./user_repository.ts";
