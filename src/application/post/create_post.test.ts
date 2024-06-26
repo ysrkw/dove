@@ -1,6 +1,6 @@
 import { assertStrictEquals } from "@std/assert";
-import { Identify } from "~/domain/mod.ts";
-import { PostRepository } from "~/infrastructure/mod.ts";
+import { Identify } from "~/domain";
+import { PostRepository } from "~/infrastructure";
 import { CreatePost, CreatePostCommand } from "./create_post.ts";
 
 Deno.test(async function isCreatedPost() {

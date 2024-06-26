@@ -1,4 +1,4 @@
-import { Identify, IPostRepository, Post, Text } from "~/domain/mod.ts";
+import { Identify, IPostRepository, Post, Text } from "~/domain";
 
 export interface CreatePostCommand {
   user_id: string;

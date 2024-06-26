@@ -1,5 +1,5 @@
-import { AggregateRoot } from "~/core/mod.ts";
-import { ExpiredAt, Identify } from "~/domain/mod.ts";
+import { AggregateRoot } from "~/core";
+import { ExpiredAt, Identify } from "~/domain";
 
 interface SessionProps {
   userId: Identify;

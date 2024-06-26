@@ -1,6 +1,6 @@
 import { assertStrictEquals } from "@std/assert";
-import { Identify } from "~/domain/mod.ts";
-import { SessionRepository } from "~/infrastructure/mod.ts";
+import { Identify } from "~/domain";
+import { SessionRepository } from "~/infrastructure";
 import { CreateSession, CreateSessionCommand } from "./create_session.ts";
 
 Deno.test(async function isCreatedSession() {

@@ -6,8 +6,8 @@ import {
   PasswordHash,
   User,
   Username,
-} from "~/domain/mod.ts";
-import { UserRepository } from "~/infrastructure/mod.ts";
+} from "~/domain";
+import { UserRepository } from "~/infrastructure";
 
 export async function initUserRepository(kv: Deno.Kv) {
   const userRepository = new UserRepository(kv);

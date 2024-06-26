@@ -1,4 +1,4 @@
-import { Identify, Session } from "~/domain/mod.ts";
+import { Identify, Session } from "~/domain";
 
 export interface ISessionRepository {
   save(session: Session): Promise<void>;

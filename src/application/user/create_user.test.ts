@@ -1,5 +1,5 @@
 import { assertStrictEquals } from "@std/assert";
-import { UserRepository } from "~/infrastructure/mod.ts";
+import { UserRepository } from "~/infrastructure";
 import { CreateUser, CreateUserCommand } from "./create_user.ts";
 
 Deno.test(async function isCreatedUser() {

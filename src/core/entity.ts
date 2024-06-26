@@ -1,4 +1,4 @@
-import { Identify } from "~/domain/mod.ts";
+import { Identify } from "~/domain";
 
 export interface IEntity<P extends unknown> {
   id: Identify;

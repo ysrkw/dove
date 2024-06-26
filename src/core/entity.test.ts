@@ -1,5 +1,5 @@
 import { assertStrictEquals } from "@std/assert";
-import { Identify } from "~/domain/mod.ts";
+import { Identify } from "~/domain";
 import { Entity } from "./entity.ts";
 
 class TestUser extends Entity<"TestUser", string> {

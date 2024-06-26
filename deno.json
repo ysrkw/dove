@@ -5,7 +5,9 @@
     "@std/async": "jsr:@std/async@^0.224.2",
     "@std/ulid": "jsr:@std/ulid@^0.224.1",
     "@valibot/valibot": "jsr:@valibot/valibot@^0.33.3",
-    "~/": "./src/"
+    "~/core": "./src/core/mod.ts",
+    "~/domain": "./src/domain/mod.ts",
+    "~/infrastructure": "./src/infrastructure/mod.ts"
   },
   "unstable": ["cron", "kv"]
 }

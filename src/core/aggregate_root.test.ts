@@ -1,5 +1,5 @@
 import { assertStrictEquals } from "@std/assert";
-import { Identify } from "~/domain/mod.ts";
+import { Identify } from "~/domain";
 import { AggregateRoot } from "./aggregate_root.ts";
 import { DomainEvent } from "./domain_event.ts";
 

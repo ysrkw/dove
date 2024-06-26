@@ -1,4 +1,4 @@
-import { IUserRepository, Password, Username } from "~/domain/mod.ts";
+import { IUserRepository, Password, Username } from "~/domain";
 
 export interface BasicAuthenticationCommand {
   username: string;

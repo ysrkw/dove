@@ -1,5 +1,5 @@
 import { assertStrictEquals } from "@std/assert";
-import { UserRepository } from "~/infrastructure/mod.ts";
+import { UserRepository } from "~/infrastructure";
 import { initUserRepository } from "./_init_user_repository.ts";
 import {
   BasicAuthentication,

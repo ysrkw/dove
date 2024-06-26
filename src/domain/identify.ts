@@ -1,6 +1,6 @@
 import * as v from "@valibot/valibot";
 import { decodeTime, ulid } from "@std/ulid";
-import { ValueObject } from "~/core/mod.ts";
+import { ValueObject } from "~/core";
 
 const IdentifySchema = v.pipe(
   v.string(),

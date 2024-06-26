@@ -1,9 +1,4 @@
-import {
-  ExpiredAt,
-  Identify,
-  ISessionRepository,
-  Session,
-} from "~/domain/mod.ts";
+import { ExpiredAt, Identify, ISessionRepository, Session } from "~/domain";
 import {
   fallbackEvent,
   findById,

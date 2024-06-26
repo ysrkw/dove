@@ -1,4 +1,4 @@
-import { Identify, IPostRepository, Post, Text } from "~/domain/mod.ts";
+import { Identify, IPostRepository, Post, Text } from "~/domain";
 import { fallbackEvent, findById, findByUserId, KvPost } from "./kv/kv_post.ts";
 
 export class PostRepository implements IPostRepository {

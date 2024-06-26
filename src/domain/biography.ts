@@ -1,5 +1,5 @@
 import * as v from "@valibot/valibot";
-import { ValueObject } from "~/core/mod.ts";
+import { ValueObject } from "~/core";
 
 const BiographySchema = v.pipe(
   v.string(),

@@ -7,7 +7,7 @@ import {
   PasswordHash,
   User,
   Username,
-} from "~/domain/mod.ts";
+} from "~/domain";
 
 export interface CreateUserCommand {
   email: string;
