@@ -11,7 +11,10 @@ export class CreateSession {
     const userId = Identify.of(command.user_id);
     const expiredAt = ExpiredAt.of();
 
-    const session = Session.create({ userId, expiredAt });
+    const session = Session.create({
+      userId,
+      expiredAt,
+    });
 
     await this.sessionRepository.save(session);
   }

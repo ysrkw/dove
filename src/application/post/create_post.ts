@@ -12,7 +12,10 @@ export class CreatePost {
     const userId = Identify.of(command.user_id);
     const text = Text.of(command.text);
 
-    const post = Post.create({ userId, text });
+    const post = Post.create({
+      userId,
+      text,
+    });
 
     await this.postRepository.save(post);
   }

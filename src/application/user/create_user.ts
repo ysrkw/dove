@@ -24,6 +24,14 @@ export class CreateUser {
     const username = Username.of(command.username);
     const passwordHash = PasswordHash.of(password.hash());
 
+    const sameEmail = await this.userRepository.findByEmail(email);
+
+    if (sameEmail) throw new Error();
+
+    const sameUsername = await this.userRepository.findByUsername(username);
+
+    if (sameUsername) throw new Error();
+
     const user = User.create({
       email,
       passwordHash,
