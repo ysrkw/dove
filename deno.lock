@@ -3,6 +3,7 @@
   "packages": {
     "specifiers": {
       "jsr:@denorg/scrypt@^4.4.4": "jsr:@denorg/scrypt@4.4.4",
+      "jsr:@hono/hono@^4.4.9": "jsr:@hono/hono@4.4.9",
       "jsr:@std/assert@0.222.1": "jsr:@std/assert@0.222.1",
       "jsr:@std/assert@^0.222.1": "jsr:@std/assert@0.222.1",
       "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
@@ -23,6 +24,9 @@
           "jsr:@std/crypto@0.222.1",
           "jsr:@std/encoding@0.222.1"
         ]
+      },
+      "@hono/hono@4.4.9": {
+        "integrity": "a25d6df9568d6257bb1a3f2452aab864a0c3876c552d01953c664b7fc811d781"
       },
       "@std/assert@0.222.1": {
         "integrity": "691637161ee584a9919d1f9950ddd1272feb8e0a19e83aa5b7563cedaf73d74c",
@@ -67,6 +71,7 @@
   "workspace": {
     "dependencies": [
       "jsr:@denorg/scrypt@^4.4.4",
+      "jsr:@hono/hono@^4.4.9",
       "jsr:@std/assert@^0.226.0",
       "jsr:@std/async@^0.224.2",
       "jsr:@std/ulid@^0.224.1",
