@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run -A ./src/presentation/main.ts"
+    "dev": "deno run --watch -A ./src/presentation/main.ts"
   },
   "imports": {
     "@denorg/scrypt": "jsr:@denorg/scrypt@^4.4.4",
