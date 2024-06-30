@@ -1,5 +1,5 @@
-import { AggregateRoot } from "~/core";
 import { Identify, Text } from "~/domain";
+import { AggregateRoot } from "./core/mod.ts";
 
 interface PostProps {
   userId: Identify;

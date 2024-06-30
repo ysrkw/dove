@@ -1,6 +1,6 @@
 import * as v from "@valibot/valibot";
 import { verify } from "@denorg/scrypt";
-import { ValueObject } from "~/core";
+import { ValueObject } from "./core/mod.ts";
 
 const PasswordHashSchema = v.pipe(
   v.string(),

@@ -1,4 +1,3 @@
-import { AggregateRoot } from "~/core";
 import {
   Biography,
   Email,
@@ -8,6 +7,7 @@ import {
   PasswordHash,
   Username,
 } from "~/domain";
+import { AggregateRoot } from "./core/mod.ts";
 
 interface UserProps {
   email: Email;

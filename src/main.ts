@@ -1,4 +1,4 @@
-import { app } from "./presentation/mod.ts";
+import { app } from "~/presentation";
 
 Deno.serve(app.fetch);
 

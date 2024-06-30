@@ -14,9 +14,9 @@
     "@std/ulid": "jsr:@std/ulid@^0.224.1",
     "@valibot/valibot": "jsr:@valibot/valibot@^0.33.3",
     "~/application": "./src/application/mod.ts",
-    "~/core": "./src/core/mod.ts",
     "~/domain": "./src/domain/mod.ts",
-    "~/infrastructure": "./src/infrastructure/mod.ts"
+    "~/infrastructure": "./src/infrastructure/mod.ts",
+    "~/presentation": "./src/presentation/mod.ts"
   },
   "unstable": ["cron", "kv"]
 }
