@@ -1,11 +1,12 @@
 import { Identify, IPostRepository, Post, Text } from "~/domain";
+import { ICommandModel } from "../core/mod.ts";
 
 export interface CreatePostCommand {
   user_id: string;
   text: string;
 }
 
-export class CreatePost {
+export class CreatePost implements ICommandModel<CreatePostCommand> {
   constructor(private postRepository: IPostRepository) {}
 
   async execution(command: CreatePostCommand) {

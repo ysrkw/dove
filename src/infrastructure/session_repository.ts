@@ -4,7 +4,7 @@ import {
   findById,
   findByUserId,
   KvSession,
-} from "./kv/kv_session.ts";
+} from "./core/kv_session.ts";
 
 export class SessionRepository implements ISessionRepository {
   constructor(private kv: Deno.Kv) {}

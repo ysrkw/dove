@@ -14,7 +14,7 @@ import {
   findById,
   findByUsername,
   KvUser,
-} from "./kv/kv_user.ts";
+} from "./core/kv_user.ts";
 
 export class UserRepository implements IUserRepository {
   constructor(private kv: Deno.Kv) {}

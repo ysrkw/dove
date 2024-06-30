@@ -3,7 +3,7 @@ import { UserRepository } from "~/infrastructure";
 import { initUserRepository } from "./_init_user_repository.ts";
 import {
   AuthenticateEmail,
-  AuthenticateEmailCommand,
+  AuthenticateEmailQuery,
 } from "./authenticate_email.ts";
 
 Deno.test(async function isValidUser() {
@@ -13,7 +13,7 @@ Deno.test(async function isValidUser() {
   const userRepository = new UserRepository(kv);
   const authenticateEmail = new AuthenticateEmail(userRepository);
 
-  const input: Required<AuthenticateEmailCommand> = {
+  const input: Required<AuthenticateEmailQuery> = {
     email: "john@example.com",
     password: "PassW0rd!",
   };
@@ -32,7 +32,7 @@ Deno.test(async function isInvalidUser() {
   const userRepository = new UserRepository(kv);
   const authenticateEmail = new AuthenticateEmail(userRepository);
 
-  const input: Required<AuthenticateEmailCommand> = {
+  const input: Required<AuthenticateEmailQuery> = {
     email: "john@example.com",
     password: "PassW0rd!_NG",
   };
@@ -51,7 +51,7 @@ Deno.test(async function isNotExistsUser() {
   const userRepository = new UserRepository(kv);
   const authenticateEmail = new AuthenticateEmail(userRepository);
 
-  const input: Required<AuthenticateEmailCommand> = {
+  const input: Required<AuthenticateEmailQuery> = {
     email: "empty@example.com",
     password: "PassW0rd!",
   };

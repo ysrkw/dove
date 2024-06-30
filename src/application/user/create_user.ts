@@ -8,6 +8,7 @@ import {
   User,
   Username,
 } from "~/domain";
+import { ICommandModel } from "../core/mod.ts";
 
 export interface CreateUserCommand {
   email: string;
@@ -15,10 +16,10 @@ export interface CreateUserCommand {
   username: string;
 }
 
-export class CreateUser {
+export class CreateUser implements ICommandModel<CreateUserCommand> {
   constructor(private userRepository: IUserRepository) {}
 
-  async execution(command: CreateUserCommand): Promise<void> {
+  async execution(command: CreateUserCommand) {
     const email = Email.of(command.email);
     const password = Password.of(command.password);
     const username = Username.of(command.username);

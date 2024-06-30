@@ -1,16 +1,18 @@
 import { Email, IUserRepository, Password } from "~/domain";
+import { IQueryModel } from "../core/mod.ts";
 
-export interface AuthenticateEmailCommand {
+export interface AuthenticateEmailQuery {
   email: string;
   password: string;
 }
 
-export class AuthenticateEmail {
+export class AuthenticateEmail
+  implements IQueryModel<AuthenticateEmailQuery, boolean> {
   constructor(private userRepository: IUserRepository) {}
 
-  async execution(command: AuthenticateEmailCommand) {
-    const email = Email.of(command.email);
-    const password = Password.of(command.password);
+  async execution(query: AuthenticateEmailQuery) {
+    const email = Email.of(query.email);
+    const password = Password.of(query.password);
 
     const user = await this.userRepository.findByEmail(email);
 

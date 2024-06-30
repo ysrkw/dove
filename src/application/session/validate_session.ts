@@ -1,14 +1,16 @@
 import { Identify, ISessionRepository } from "~/domain";
+import { IQueryModel } from "../core/mod.ts";
 
-export interface ValidateSessionCommand {
+export interface ValidateSessionQuery {
   session_id: string;
 }
 
-export class ValidateSession {
+export class ValidateSession
+  implements IQueryModel<ValidateSessionQuery, boolean> {
   constructor(private sessionRepository: ISessionRepository) {}
 
-  async execution(command: ValidateSessionCommand) {
-    const id = Identify.of(command.session_id);
+  async execution(query: ValidateSessionQuery) {
+    const id = Identify.of(query.session_id);
 
     const session = await this.sessionRepository.findById(id);
 

@@ -1,15 +1,15 @@
 import { Entity, IEntity } from "./entity.ts";
 import { IDomainEvent } from "./domain_event.ts";
 
-export interface IAggregateRoot<P extends unknown> extends IEntity<P> {
+export interface IAggregateRoot<Props extends unknown> extends IEntity<Props> {
   domainEvents: IDomainEvent<unknown>[];
   addDomainEvent(domainEvent: IDomainEvent<unknown>): void;
   clearDomainEvents(): void;
 }
 
-export abstract class AggregateRoot<T extends string, P extends unknown>
-  extends Entity<T, P>
-  implements IAggregateRoot<P> {
+export abstract class AggregateRoot<Brand extends string, Props extends unknown>
+  extends Entity<Brand, Props>
+  implements IAggregateRoot<Props> {
   public readonly domainEvents: IDomainEvent<unknown>[] = [];
 
   addDomainEvent(domainEvent: IDomainEvent<unknown>): void {

@@ -3,7 +3,7 @@ import { UserRepository } from "~/infrastructure";
 import { initUserRepository } from "./_init_user_repository.ts";
 import {
   AuthenticateUsername,
-  AuthenticateUsernameCommand,
+  AuthenticateUsernameQuery,
 } from "./authenticate_username.ts";
 
 Deno.test(async function isValidUser() {
@@ -13,7 +13,7 @@ Deno.test(async function isValidUser() {
   const userRepository = new UserRepository(kv);
   const authenticateUsername = new AuthenticateUsername(userRepository);
 
-  const input: Required<AuthenticateUsernameCommand> = {
+  const input: Required<AuthenticateUsernameQuery> = {
     username: "john_doe",
     password: "PassW0rd!",
   };
@@ -32,7 +32,7 @@ Deno.test(async function isInvalidUser() {
   const userRepository = new UserRepository(kv);
   const authenticateUsername = new AuthenticateUsername(userRepository);
 
-  const input: Required<AuthenticateUsernameCommand> = {
+  const input: Required<AuthenticateUsernameQuery> = {
     username: "john_doe",
     password: "PassW0rd!_NG",
   };
@@ -51,7 +51,7 @@ Deno.test(async function isNotExistsUser() {
   const userRepository = new UserRepository(kv);
   const authenticateUsername = new AuthenticateUsername(userRepository);
 
-  const input: Required<AuthenticateUsernameCommand> = {
+  const input: Required<AuthenticateUsernameQuery> = {
     username: "john_smith",
     password: "PassW0rd!",
   };

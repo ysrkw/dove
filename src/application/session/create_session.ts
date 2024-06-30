@@ -1,10 +1,11 @@
 import { ExpiredAt, Identify, ISessionRepository, Session } from "~/domain";
+import { ICommandModel } from "../core/mod.ts";
 
 export interface CreateSessionCommand {
   user_id: string;
 }
 
-export class CreateSession {
+export class CreateSession implements ICommandModel<CreateSessionCommand> {
   constructor(private sessionRepository: ISessionRepository) {}
 
   async execution(command: CreateSessionCommand) {
