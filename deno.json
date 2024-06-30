@@ -1,11 +1,4 @@
 {
-  "compilerOptions": {
-    "jsx": "precompile",
-    "jsxImportSource": "@hono/hono/jsx"
-  },
-  "tasks": {
-    "dev": "deno run --watch -A ./src/main.ts"
-  },
   "imports": {
     "@denorg/scrypt": "jsr:@denorg/scrypt@^4.4.4",
     "@hono/hono": "jsr:@hono/hono@^4.4.9",
@@ -17,6 +10,13 @@
     "~/domain": "./src/domain/mod.ts",
     "~/infrastructure": "./src/infrastructure/mod.ts",
     "~/presentation": "./src/presentation/mod.ts"
+  },
+  "tasks": {
+    "dev": "deno run --watch -A ./src/main.ts"
+  },
+  "compilerOptions": {
+    "jsx": "precompile",
+    "jsxImportSource": "@hono/hono/jsx"
   },
   "unstable": ["cron", "kv"]
 }
