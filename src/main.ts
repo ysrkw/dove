@@ -1,7 +1,5 @@
-import { app } from "~/presentation";
+import { createApp } from "~/presentation";
+
+const app = createApp();
 
 Deno.serve(app.fetch);
-
-const kv = await Deno.openKv(":memory:");
-
-await kv.listenQueue(console.log);
