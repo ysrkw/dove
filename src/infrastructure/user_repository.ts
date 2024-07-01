@@ -41,9 +41,7 @@ export class UserRepository implements IUserRepository {
 
     if (result.ok) {
       await this.kv.enqueue(user.domainEvents, {
-        delay: 1000,
         keysIfUndelivered: fallbackEvent(value.id),
-        backoffSchedule: [3000, 5000],
       });
     }
   }

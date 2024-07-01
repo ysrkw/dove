@@ -28,9 +28,7 @@ export class SessionRepository implements ISessionRepository {
 
     if (result.ok) {
       await this.kv.enqueue(session.domainEvents, {
-        delay: 1000,
         keysIfUndelivered: fallbackEvent(value.id),
-        backoffSchedule: [3000, 5000],
       });
     }
   }
