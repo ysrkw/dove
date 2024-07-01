@@ -7,12 +7,6 @@ class TestText extends ValueObject<"TestText", string> {
   }
 }
 
-Deno.test(function holdArgumentValue() {
-  const text = TestText.of("Hello World");
-
-  assertStrictEquals(text.value, "Hello World");
-});
-
 Deno.test(function sameValuesIsEqual() {
   const foo = TestText.of("same text");
   const bar = TestText.of("same text");

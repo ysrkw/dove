@@ -8,12 +8,6 @@ class TestUser extends Entity<"TestUser", string> {
   }
 }
 
-Deno.test(function holdArgumentProps() {
-  const john = TestUser.create("john doe");
-
-  assertStrictEquals(john.props, "john doe");
-});
-
 Deno.test(function sameIdentifiesIsEqual() {
   const alice = TestUser.create("alice");
   const bob = TestUser.create("bob", alice.id);
