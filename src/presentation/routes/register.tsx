@@ -20,8 +20,9 @@ export function createRouteRegister() {
 
   register.post("/", vValidator("form", RegisterPostSchema), async (ctx) => {
     const form = ctx.req.valid("form" as never);
+    const kv = ctx.get("kv");
 
-    const userRepository = new UserRepository(ctx.var.kv);
+    const userRepository = new UserRepository(kv);
     const createUser = new CreateUser(userRepository);
 
     await createUser.execution(form);
