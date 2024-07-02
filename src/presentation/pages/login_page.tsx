@@ -5,11 +5,11 @@ export function LoginPage() {
     <Layout>
       <form method="POST" action="/login">
         <label>
-          Email <input type="email" required />
+          Email <input type="email" name="email" required />
         </label>
 
         <label>
-          Password <input type="password" required />
+          Password <input type="password" name="password" required />
         </label>
 
         <button type="submit">Login</button>

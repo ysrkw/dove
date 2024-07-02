@@ -3,18 +3,18 @@
   "packages": {
     "specifiers": {
       "jsr:@denorg/scrypt@^4.4.4": "jsr:@denorg/scrypt@4.4.4",
-      "jsr:@hono/hono@^4.4.9": "jsr:@hono/hono@4.4.9",
+      "jsr:@hono/hono@^4.4.10": "jsr:@hono/hono@4.4.10",
       "jsr:@std/assert@0.222.1": "jsr:@std/assert@0.222.1",
       "jsr:@std/assert@^0.222.1": "jsr:@std/assert@0.222.1",
       "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
-      "jsr:@std/async@^0.224.2": "jsr:@std/async@0.224.2",
       "jsr:@std/crypto@0.222.1": "jsr:@std/crypto@0.222.1",
       "jsr:@std/encoding@0.222.1": "jsr:@std/encoding@0.222.1",
       "jsr:@std/encoding@^0.222.1": "jsr:@std/encoding@0.222.1",
       "jsr:@std/fmt@^0.222.1": "jsr:@std/fmt@0.222.1",
-      "jsr:@std/internal@^1.0.0": "jsr:@std/internal@1.0.0",
+      "jsr:@std/internal@^1.0.0": "jsr:@std/internal@1.0.1",
       "jsr:@std/ulid@^0.224.1": "jsr:@std/ulid@0.224.1",
-      "jsr:@valibot/valibot@^0.33.3": "jsr:@valibot/valibot@0.33.3"
+      "jsr:@valibot/valibot@^0.35.0": "jsr:@valibot/valibot@0.35.0",
+      "npm:@hono/valibot-validator@^0.3.0": "npm:@hono/valibot-validator@0.3.0_hono@4.4.10_valibot@0.35.0"
     },
     "jsr": {
       "@denorg/scrypt@4.4.4": {
@@ -25,8 +25,8 @@
           "jsr:@std/encoding@0.222.1"
         ]
       },
-      "@hono/hono@4.4.9": {
-        "integrity": "a25d6df9568d6257bb1a3f2452aab864a0c3876c552d01953c664b7fc811d781"
+      "@hono/hono@4.4.10": {
+        "integrity": "410ae169532581e8fd34e473d41b989cc7cf81d01ab274ca6b49f8a6acd920ad"
       },
       "@std/assert@0.222.1": {
         "integrity": "691637161ee584a9919d1f9950ddd1272feb8e0a19e83aa5b7563cedaf73d74c",
@@ -39,9 +39,6 @@
         "dependencies": [
           "jsr:@std/internal@^1.0.0"
         ]
-      },
-      "@std/async@0.224.2": {
-        "integrity": "4d277d6e165df43d5e061ba0ef3edfddb8e8d558f5b920e3e6b1d2614b44d074"
       },
       "@std/crypto@0.222.1": {
         "integrity": "d5b9e6c704fadbcc384cd42c0b603ad4aea710ece0ff26426602681b64fd237c",
@@ -56,14 +53,31 @@
       "@std/fmt@0.222.1": {
         "integrity": "ec3382f9b0261c1ab1a5c804aa355d816515fa984cdd827ed32edfb187c0a722"
       },
-      "@std/internal@1.0.0": {
-        "integrity": "ac6a6dfebf838582c4b4f61a6907374e27e05bedb6ce276e0f1608fe84e7cd9a"
+      "@std/internal@1.0.1": {
+        "integrity": "6f8c7544d06a11dd256c8d6ba54b11ed870aac6c5aeafff499892662c57673e6"
       },
       "@std/ulid@0.224.1": {
         "integrity": "4de06fdb030ff3990b1b0344e330373c11ce6051ac449fc435667a485a6723fa"
       },
-      "@valibot/valibot@0.33.3": {
-        "integrity": "2121ea87f9392a37ca54ccafe36f1269dfa7d980a35e55e5d0749c5ffd50997f"
+      "@valibot/valibot@0.35.0": {
+        "integrity": "fe0f153a99122cc1f20dc9f1d20368a5a36625d5e5e07421bd15a289ad2ffac1"
+      }
+    },
+    "npm": {
+      "@hono/valibot-validator@0.3.0_hono@4.4.10_valibot@0.35.0": {
+        "integrity": "sha512-EcGJKzLt11SK4K11yKHrhI93ECtKeSHAnnENHw5tCL0ZhyDIx96avc3Ua8/ri4fwVvRPuOzFQ2OBRsVvwZuqeQ==",
+        "dependencies": {
+          "hono": "hono@4.4.10",
+          "valibot": "valibot@0.35.0"
+        }
+      },
+      "hono@4.4.10": {
+        "integrity": "sha512-z6918u9rXRU5CCisMHd2uUVoQXcNyUrUMmYY7VH10v4HJG7+hqgMK/G8YNTd13C6s4rBfzF09iz8VpOip9qG3A==",
+        "dependencies": {}
+      },
+      "valibot@0.35.0": {
+        "integrity": "sha512-+i2aCRkReTrd5KBN/dW2BrPOvFnU5LXTV2xjZnjnqUIO8YUx6P2+MgRrkwF2FhkexgyKq/NIZdPdknhHf5A/Ww==",
+        "dependencies": {}
       }
     }
   },
@@ -71,11 +85,11 @@
   "workspace": {
     "dependencies": [
       "jsr:@denorg/scrypt@^4.4.4",
-      "jsr:@hono/hono@^4.4.9",
+      "jsr:@hono/hono@^4.4.10",
       "jsr:@std/assert@^0.226.0",
-      "jsr:@std/async@^0.224.2",
       "jsr:@std/ulid@^0.224.1",
-      "jsr:@valibot/valibot@^0.33.3"
+      "jsr:@valibot/valibot@^0.35.0",
+      "npm:@hono/valibot-validator@^0.3.0"
     ]
   }
 }

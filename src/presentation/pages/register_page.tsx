@@ -5,15 +5,15 @@ export function RegisterPage() {
     <Layout>
       <form method="POST" action="/register">
         <label>
-          Email <input type="email" required />
+          Email <input type="email" name="email" required />
         </label>
 
         <label>
-          Password <input type="password" required />
+          Password <input type="password" name="password" required />
         </label>
 
         <label>
-          Username @<input type="text" required />
+          Username @<input type="text" name="username" required />
         </label>
 
         <button type="submit">Login</button>

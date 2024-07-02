@@ -1,7 +1,7 @@
 import * as v from "@valibot/valibot";
 import { ValueObject } from "./core/mod.ts";
 
-const UsernameSchema = v.pipe(
+export const UsernameSchema = v.pipe(
   v.string(),
   v.minLength(4),
   v.maxLength(16),

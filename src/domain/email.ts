@@ -1,7 +1,7 @@
 import * as v from "@valibot/valibot";
 import { ValueObject } from "./core/mod.ts";
 
-const EmailSchema = v.pipe(
+export const EmailSchema = v.pipe(
   v.string(),
   v.email(),
 );
