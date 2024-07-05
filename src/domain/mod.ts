@@ -14,5 +14,6 @@ export * from "./user_created.ts";
 export * from "./user_email_changed.ts";
 export * from "./user_password_changed.ts";
 export * from "./user_repository.ts";
+export * from "./user_service.ts";
 export * from "./user.ts";
 export * from "./username.ts";
