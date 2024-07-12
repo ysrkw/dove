@@ -7,6 +7,7 @@ import {
   PasswordHash,
   User,
   Username,
+  UserService,
 } from "~/domain";
 import { ICommandModel } from "../core/mod.ts";
 
@@ -17,7 +18,11 @@ export interface CreateUserCommand {
 }
 
 export class CreateUser implements ICommandModel<CreateUserCommand> {
-  constructor(private userRepository: IUserRepository) {}
+  private userService: UserService;
+
+  constructor(private userRepository: IUserRepository) {
+    this.userService = new UserService(this.userRepository);
+  }
 
   async execution(command: CreateUserCommand) {
     const email = Email.of(command.email);
@@ -25,13 +30,13 @@ export class CreateUser implements ICommandModel<CreateUserCommand> {
     const username = Username.of(command.username);
     const passwordHash = PasswordHash.of(password.hash());
 
-    const sameEmail = await this.userRepository.findByEmail(email);
+    if (await this.userService.isEmailExists(email)) {
+      throw new Error();
+    }
 
-    if (sameEmail) throw new Error();
-
-    const sameUsername = await this.userRepository.findByUsername(username);
-
-    if (sameUsername) throw new Error();
+    if (await this.userService.isUsernameExists(username)) {
+      throw new Error();
+    }
 
     const user = User.create({
       email,
