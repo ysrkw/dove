@@ -1,0 +1,17 @@
+{
+  "name": "Deno",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:debian",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/deno:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "denoland.vscode-deno",
+        "EditorConfig.EditorConfig",
+        "mutantdino.resourcemonitor"
+      ]
+    }
+  }
+}
